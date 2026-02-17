@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #e8e8e5;
+            padding: 40px;
+            color: #1a1a1a;
+        }
+        
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #f5f5f3;
+            padding: 35px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .timeline-info {
+            font-size: 11px;
+            text-align: right;
+            color: #666;
+        }
+        
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .phase-card {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 18px;
+        }
+        
+        .phase-number {
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+        
+        .phase-label {
+            height: 60px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .phase-desc {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #333;
+        }
+        
+        .phase-meta {
+            margin-top: 10px;
+            font-size: 10px;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 8px;
+        }
+        
+        .table-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .detail-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .detail-table th {
+            text-align: left;
+            padding: 10px 8px;
+            background: #333;
+            color: #fff;
+            font-weight: normal;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .detail-table td {
+            padding: 12px 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e8e8e8;
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+        
+        .status-done { color: #27ae60; }
+        .status-progress { color: #f39c12; }
+        .status-pending { color: #95a5a6; }
+    </style>
+</head>
+<body>
+    <div class="timeline-container">
+        <div class="timeline-header">
+            <div class="timeline-title">PROJECT TIMELINE</div>
+            <div class="timeline-info">
+                VERSION 1.0<br>
+                UPDATED: 05 FEB 2026
+            </div>
+        </div>
+        
+        <div class="phase-grid">
+            <div class="phase-card">
+                <div class="phase-number">PHASE 01</div>
+                <div class="phase-label">[ PLAN ]</div>
+                <div class="phase-desc">需求收集与分析阶段，明确项目目标和范围</div>
+                <div class="phase-meta">EST: 1周 <span class="status-done">DONE</span></div>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">PHASE 02</div>
+                <div class="phase-label">[ DESIGN ]</div>
+                <div class="phase-desc">设计方案评审，确定技术架构和UI/UX</div>
+                <div class="phase-meta">EST: 2周 <span class="status-done">DONE</span></div>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">PHASE 03</div>
+                <div class="phase-label">[ BUILD ]</div>
+                <div class="phase-desc">核心功能开发，迭代实现主要模块</div>
+                <div class="phase-meta">EST: 4周 <span class="status-progress">IN PROGRESS</span></div>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">PHASE 04</div>
+                <div class="phase-label">[ TEST ]</div>
+                <div class="phase-desc">测试与优化，修复bug，性能调优</div>
+                <div class="phase-meta">EST: 2周 <span class="status-pending">PENDING</span></div>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">PHASE 05</div>
+                <div class="phase-label">[ DOCUMENT ]</div>
+                <div class="phase-desc">文档编写，用户指南和API文档</div>
+                <div class="phase-meta">EST: 1周 <span class="status-pending">PENDING</span></div>
+            </div>
+            <div class="phase-card">
+                <div class="phase-number">PHASE 06</div>
+                <div class="phase-label">[ DEPLOY ]</div>
+                <div class="phase-desc">发布上线，监控与后续迭代</div>
+                <div class="phase-meta">EST: ONGOING <span class="status-pending">PENDING</span></div>
+            </div>
+        </div>
+        
+        <div class="table-section">
+            <table class="detail-table">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Description</th>
+                        <th>Notes</th>
+                        <th>Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="tag">PLAN</span></td>
+                        <td>资源分配 & 排期</td>
+                        <td>确认团队成员和时间节点</td>
+                        <td>W1</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">BUILD</span></td>
+                        <td>MVP 功能开发</td>
+                        <td>优先实现核心路径</td>
+                        <td>W3-W6</td>
+                    </tr>
+                    <tr>
+                        <td><span class="tag">TEST</span></td>
+                        <td>QA & 验收</td>
+                        <td>覆盖主要用户场景</td>
+                        <td>W7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

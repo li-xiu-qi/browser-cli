@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层级树形结构</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #fff;
+            padding: 40px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #264653;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #264653;
+        }
+        
+        .tree {
+            border: 1.5px solid #000;
+            padding: 20px;
+            background: #fafafa;
+        }
+        
+        .node {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .root {
+            background: #264653;
+            color: #fff;
+            padding: 10px 16px;
+            font-weight: bold;
+            display: inline-block;
+            border: 1px solid #000;
+        }
+        
+        .branch {
+            margin-left: 30px;
+            border-left: 2px solid #264653;
+            padding-left: 20px;
+        }
+        
+        .leaf {
+            background: #fff;
+            border: 1px solid #000;
+            padding: 8px 14px;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-width: 250px;
+        }
+        
+        .leaf-name {
+            font-family: "SF Mono", monospace;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .leaf-type {
+            font-size: 11px;
+            padding: 2px 8px;
+            margin-left: 12px;
+        }
+        
+        .type-class {
+            background: #2a9d8f;
+            color: #fff;
+        }
+        
+        .type-func {
+            background: #e9c46a;
+            color: #333;
+        }
+        
+        .connector {
+            color: #264653;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Agent 类继承结构</div>
+        
+        <div class="tree">
+            <div class="node">
+                <span class="root">Agent (Base)</span>
+            </div>
+            <div class="branch">
+                <div class="leaf">
+                    <span class="connector">├──</span>
+                    <span class="leaf-name">ToolCallingAgent</span>
+                    <span class="leaf-type type-class">class</span>
+                </div>
+                <div class="leaf">
+                    <span class="connector">├──</span>
+                    <span class="leaf-name">CodeAgent</span>
+                    <span class="leaf-type type-class">class</span>
+                </div>
+                <div class="leaf">
+                    <span class="connector">└──</span>
+                    <span class="leaf-name">MultiStepAgent</span>
+                    <span class="leaf-type type-class">class</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

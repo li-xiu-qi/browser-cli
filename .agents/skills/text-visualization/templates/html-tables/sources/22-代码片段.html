@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>代码片段</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "SF Mono", Monaco, "Courier New", monospace;
+            background: #1e1e1e;
+            padding: 40px;
+            color: #d4d4d4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .file-header {
+            background: #2d2d2d;
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .file-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .filename {
+            font-size: 13px;
+            color: #ccc;
+            margin-left: 10px;
+        }
+        .code-block {
+            background: #252526;
+            padding: 25px;
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        .line {
+            display: flex;
+        }
+        .line-num {
+            width: 40px;
+            color: #858585;
+            text-align: right;
+            padding-right: 20px;
+            user-select: none;
+        }
+        .line-content {
+            flex: 1;
+        }
+        .comment { color: #6a9955; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .function { color: #dcdcaa; }
+        .variable { color: #9cdcfe; }
+        .number { color: #b5cea8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="file-header">
+            <div class="file-dot dot-red"></div>
+            <div class="file-dot dot-yellow"></div>
+            <div class="file-dot dot-green"></div>
+            <div class="filename">neural_network.py</div>
+        </div>
+        <div class="code-block">
+            <div class="line">
+                <div class="line-num">1</div>
+                <div class="line-content"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+            </div>
+            <div class="line">
+                <div class="line-num">2</div>
+                <div class="line-content"></div>
+            </div>
+            <div class="line">
+                <div class="line-num">3</div>
+                <div class="line-content"><span class="keyword">class</span> <span class="function">NeuralNetwork</span>:</div>
+            </div>
+            <div class="line">
+                <div class="line-num">4</div>
+                <div class="line-content">    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="variable">self</span>, <span class="variable">layers</span>):</div>
+            </div>
+            <div class="line">
+                <div class="line-num">5</div>
+                <div class="line-content">        <span class="variable">self</span>.weights = [np.random.randn(x, y) </div>
+            </div>
+            <div class="line">
+                <div class="line-num">6</div>
+                <div class="line-content">                        <span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="function">zip</span>(layers[:-<span class="number">1</span>], layers[<span class="number">1</span>:])]</div>
+            </div>
+            <div class="line">
+                <div class="line-num">7</div>
+                <div class="line-content"></div>
+            </div>
+            <div class="line">
+                <div class="line-num">8</div>
+                <div class="line-content">    <span class="keyword">def</span> <span class="function">sigmoid</span>(<span class="variable">self</span>, <span class="variable">z</span>):</div>
+            </div>
+            <div class="line">
+                <div class="line-num">9</div>
+                <div class="line-content">        <span class="keyword">return</span> <span class="number">1.0</span> / (<span class="number">1.0</span> + np.exp(-z))</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

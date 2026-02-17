@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>报纸剪报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f4f1ea;
+            padding: 40px;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+        /* 报纸风格：多栏布局、信息密度高 */
+        .masthead {
+            text-align: center;
+            border-bottom: 3px double #1a1a1a;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .newspaper-title {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .date-line {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .headline {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            line-height: 1.3;
+        }
+        .columns {
+            column-count: 2;
+            column-gap: 30px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .data-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            break-inside: avoid;
+        }
+        .data-title {
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        td:last-child {
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="masthead">
+            <div class="newspaper-title">The Daily Study</div>
+            <div class="date-line">Thursday, February 5, 2026</div>
+        </div>
+        
+        <div class="headline">Weekly Learning Report: Consistent Progress in Machine Learning Track</div>
+        
+        <div class="columns">
+            <p>Students across the program have shown remarkable dedication to their studies this week, with completion rates exceeding expectations in advanced mathematics and programming fundamentals.</p>
+            
+            <div class="data-box">
+                <div class="data-title">Study Hours This Week</div>
+                <table>
+                    <tr>
+                        <td>Mathematics</td>
+                        <td>12.5 hrs</td>
+                    </tr>
+                    <tr>
+                        <td>Programming</td>
+                        <td>15.0 hrs</td>
+                    </tr>
+                    <tr>
+                        <td>Reading</td>
+                        <td>8.5 hrs</td>
+                    </tr>
+                    <tr>
+                        <td>Practice</td>
+                        <td>10.0 hrs</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p>The data indicates a strong correlation between consistent daily practice and retention rates, with students maintaining 2-hour daily sessions showing 40% better outcomes.</p>
+            
+            <div class="data-box">
+                <div class="data-title">Completion Rates</div>
+                <table>
+                    <tr>
+                        <td>Exercises</td>
+                        <td>94%</td>
+                    </tr>
+                    <tr>
+                        <td>Quizzes</td>
+                        <td>87%</td>
+                    </tr>
+                    <tr>
+                        <td>Projects</td>
+                        <td>78%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

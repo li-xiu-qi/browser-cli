@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>咖啡馆菜单</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: #f5f0e8;
+            padding: 50px;
+            color: #4a4a4a;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fffdf9;
+            padding: 50px;
+            border: 8px solid #3d2817;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px double #3d2817;
+            padding-bottom: 30px;
+        }
+        .shop-name {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: #3d2817;
+            margin-bottom: 10px;
+        }
+        .shop-tagline {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #8b6914;
+            text-transform: uppercase;
+        }
+        .section {
+            margin-bottom: 35px;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #3d2817;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: "—";
+            margin: 0 15px;
+            color: #c9a227;
+        }
+        table {
+            width: 100%;
+            font-size: 15px;
+        }
+        td {
+            padding: 12px 0;
+            border-bottom: 1px dotted #d4c4a8;
+        }
+        td:first-child {
+            text-align: left;
+        }
+        td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: #3d2817;
+        }
+        .item-name {
+            font-weight: 500;
+        }
+        .item-desc {
+            font-size: 12px;
+            color: #999;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="shop-name">THE BEAN</div>
+            <div class="shop-tagline">Artisan Coffee & Study Space</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Coffee</div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="item-name">Espresso</div>
+                        <div class="item-desc">Double shot, rich crema</div>
+                    </td>
+                    <td>¥28</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="item-name">Pour Over</div>
+                        <div class="item-desc">Single origin, hand crafted</div>
+                    </td>
+                    <td>¥42</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="item-name">Cold Brew</div>
+                        <div class="item-desc">12-hour steep, smooth</div>
+                    </td>
+                    <td>¥38</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Study Menu</div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="item-name">Focus Session</div>
+                        <div class="item-desc">2h quiet space + coffee</div>
+                    </td>
+                    <td>¥58</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="item-name">Deep Work Day</div>
+                        <div class="item-desc">All day access + unlimited refills</div>
+                    </td>
+                    <td>¥128</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

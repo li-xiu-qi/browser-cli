@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现代金融报表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8f9fa;
+            padding: 50px;
+            color: #212529;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1f2e 0%, #2d3748 100%);
+            padding: 40px;
+            color: #fff;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .company {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-bottom: 8px;
+        }
+        
+        .report-title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .report-meta {
+            text-align: right;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        .kpi-row {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .kpi {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-value.positive {
+            color: #48bb78;
+        }
+        
+        .kpi-value.negative {
+            color: #fc8181;
+        }
+        
+        .kpi-label {
+            font-size: 12px;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .kpi-change {
+            font-size: 13px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        
+        .content {
+            padding: 35px 40px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #718096;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 14px;
+        }
+        
+        th {
+            text-align: left;
+            padding: 14px 16px;
+            background: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        th:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+        
+        th:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+        
+        td {
+            padding: 16px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .trend.up {
+            color: #48bb78;
+        }
+        
+        .trend.down {
+            color: #fc8181;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #ebf8ff;
+            color: #3182ce;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .tag.success {
+            background: #f0fff4;
+            color: #38a169;
+        }
+        
+        .tag.warning {
+            background: #fffaf0;
+            color: #dd6b20;
+        }
+        
+        .footer {
+            padding: 20px 40px;
+            background: #f7fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .footer-left {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div>
+                    <div class="company">Acme Corporation</div>
+                    <div class="report-title">Q4 2025 Financial Report</div>
+                </div>
+                <div class="report-meta">
+                    <div>Report Date</div>
+                    <div style="font-weight: 600; margin-top: 4px;">Feb 6, 2026</div>
+                </div>
+            </div>
+            
+            <div class="kpi-row">
+                <div class="kpi">
+                    <div class="kpi-value">$2.4M</div>
+                    <div class="kpi-label">Revenue</div>
+                    <div class="kpi-change positive">+12.5% vs Q3</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-value">$486K</div>
+                    <div class="kpi-label">Net Profit</div>
+                    <div class="kpi-change positive">+8.3% vs Q3</div>
+                </div>
+                <div class="kpi">
+                    <div class="kpi-value">18.2%</div>
+                    <div class="kpi-label">Margin</div>
+                    <div class="kpi-change negative">-0.8% vs Q3</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section-title">Revenue by Product Line</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Q4 Revenue</th>
+                        <th>Growth</th>
+                        <th>Share</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SaaS Platform</td>
+                        <td style="font-weight: 600;">$1,240,000</td>
+                        <td>
+                            <span class="trend up">↑ 15.2%</span>
+                        </td>
+                        <td>52%</td>
+                        <td><span class="tag success">On Target</span></td>
+                    </tr>
+                    <tr>
+                        <td>Enterprise License</td>
+                        <td style="font-weight: 600;">$680,000</td>
+                        <td>
+                            <span class="trend up">↑ 8.7%</span>
+                        </td>
+                        <td>28%</td>
+                        <td><span class="tag success">On Target</span></td>
+                    </tr>
+                    <tr>
+                        <td>Consulting Services</td>
+                        <td style="font-weight: 600;">$320,000</td>
+                        <td>
+                            <span class="trend down">↓ 3.2%</span>
+                        </td>
+                        <td>14%</td>
+                        <td><span class="tag warning">Review</span></td>
+                    </tr>
+                    <tr>
+                        <td>Support & Maintenance</td>
+                        <td style="font-weight: 600;">$160,000</td>
+                        <td>
+                            <span class="trend up">↑ 5.1%</span>
+                        </td>
+                        <td>6%</td>
+                        <td><span class="tag">Stable</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-left">
+                <span>Prepared by: Finance Team</span>
+                <span>|</span>
+                <span>Confidential</span>
+            </div>
+            <div>Page 1 of 12</div>
+        </div>
+    </div>
+</body>
+</html>

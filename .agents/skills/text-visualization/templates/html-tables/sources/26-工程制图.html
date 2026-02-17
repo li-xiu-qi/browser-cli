@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>工程制图</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Courier New", monospace;
+            background: #f0f0f0;
+            padding: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        /* 工程制图风格：边框、标题栏、精确对齐 */
+        .draft-header {
+            border: 2px solid #000;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .draft-title {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .draft-info {
+            font-size: 11px;
+            text-align: right;
+            line-height: 1.4;
+        }
+        .draft-border {
+            border: 2px solid #000;
+            padding: 20px;
+            position: relative;
+        }
+        .draft-border::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid #ccc;
+            pointer-events: none;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 20px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #000;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px 10px;
+            text-align: center;
+        }
+        th {
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+        .dimension {
+            font-family: "Courier New", monospace;
+            font-size: 11px;
+            color: #666;
+        }
+        .tolerance {
+            font-size: 10px;
+            color: #999;
+        }
+        .drawing-note {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            font-size: 11px;
+        }
+        .note-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="draft-header">
+            <div class="draft-title">PROJECT SPECIFICATION</div>
+            <div class="draft-info">
+                DOC NO: PS-2026-001<br>
+                REV: A<br>
+                DATE: 2026.02.05
+            </div>
+        </div>
+        
+        <div class="draft-border">
+            <div class="section-title">System Architecture Parameters</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Spec</th>
+                        <th>Value</th>
+                        <th>Tolerance</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Input Layer</td>
+                        <td>Dimensions</td>
+                        <td>784</td>
+                        <td class="tolerance">±0</td>
+                        <td>nodes</td>
+                    </tr>
+                    <tr>
+                        <td>Hidden Layer 1</td>
+                        <td>Dimensions</td>
+                        <td>256</td>
+                        <td class="tolerance">±0</td>
+                        <td>nodes</td>
+                    </tr>
+                    <tr>
+                        <td>Hidden Layer 2</td>
+                        <td>Dimensions</td>
+                        <td>128</td>
+                        <td class="tolerance">±0</td>
+                        <td>nodes</td>
+                    </tr>
+                    <tr>
+                        <td>Output Layer</td>
+                        <td>Dimensions</td>
+                        <td>10</td>
+                        <td class="tolerance">±0</td>
+                        <td>classes</td>
+                    </tr>
+                    <tr>
+                        <td>Learning Rate</td>
+                        <td>Initial</td>
+                        <td>0.001</td>
+                        <td class="tolerance">±0.0001</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Batch Size</td>
+                        <td>Training</td>
+                        <td>32</td>
+                        <td class="tolerance">±0</td>
+                        <td>samples</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="section-title">Performance Requirements</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Target</th>
+                        <th>Min</th>
+                        <th>Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Accuracy</td>
+                        <td>95%</td>
+                        <td>92%</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Inference Time</td>
+                        <td>50ms</td>
+                        <td>-</td>
+                        <td>100ms</td>
+                    </tr>
+                    <tr>
+                        <td>Memory Usage</td>
+                        <td>500MB</td>
+                        <td>-</td>
+                        <td>1GB</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="drawing-note">
+                <div class="note-label">NOTES:</div>
+                1. All dimensions are critical unless otherwise specified.<br>
+                2. Model must achieve target accuracy within 100 epochs.<br>
+                3. Regularization: L2 with λ=0.001 applied to all layers.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

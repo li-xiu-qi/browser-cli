@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>包豪斯几何风</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 60px;
+            color: #1a1a1a;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 0;
+        }
+        
+        .header {
+            background: #e94e1b;
+            color: #fff;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 40px;
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #1a1a1a;
+            margin: 40px;
+        }
+        
+        .cell {
+            background: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .cell-header {
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 20px;
+        }
+        
+        .cell-num {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .cell-label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #666;
+        }
+        
+        .cell-accent {
+            background: #ffd700;
+        }
+        
+        .cell-accent .cell-num {
+            color: #1a1a1a;
+        }
+        
+        .list {
+            margin: 0 40px 40px;
+        }
+        
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-marker {
+            width: 12px;
+            height: 12px;
+            background: #e94e1b;
+            margin-right: 20px;
+        }
+        
+        .item-text {
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
+        .item-status {
+            padding: 6px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .status-done {
+            background: #2d5a27;
+            color: #fff;
+        }
+        
+        .status-wip {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 30px 40px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">System Status</div>
+            <div class="subtitle">Real-time monitoring dashboard</div>
+        </div>
+        
+        <div class="grid">
+            <div class="cell-header">Metric</div>
+            <div class="cell-header">Target</div>
+            <div class="cell-header">Current</div>
+            
+            <div class="cell">
+                <div class="cell-num">99.9%</div>
+                <div class="cell-label">Uptime</div>
+            </div>
+            <div class="cell">
+                <div class="cell-num">99.5%</div>
+                <div class="cell-label">Target</div>
+            </div>
+            <div class="cell cell-accent">
+                <div class="cell-num">+0.4%</div>
+                <div class="cell-label">Delta</div>
+            </div>
+            
+            <div class="cell">
+                <div class="cell-num">45ms</div>
+                <div class="cell-label">Latency</div>
+            </div>
+            <div class="cell">
+                <div class="cell-num">&lt;100ms</div>
+                <div class="cell-label">Target</div>
+            </div>
+            <div class="cell cell-accent">
+                <div class="cell-num">PASS</div>
+                <div class="cell-label">Status</div>
+            </div>
+        </div>
+        
+        <div class="list">
+            <div class="item">
+                <div class="item-marker"></div>
+                <div class="item-text">API Gateway Configuration</div>
+                <div class="item-status status-done">Complete</div>
+            </div>
+            <div class="item">
+                <div class="item-marker"></div>
+                <div class="item-text">Database Migration</div>
+                <div class="item-status status-done">Complete</div>
+            </div>
+            <div class="item">
+                <div class="item-marker"></div>
+                <div class="item-text">Cache Layer Implementation</div>
+                <div class="item-status status-wip">In Progress</div>
+            </div>
+            <div class="item">
+                <div class="item-marker"></div>
+                <div class="item-text">Monitoring Setup</div>
+                <div class="item-status status-wip">In Progress</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Bauhaus Design System / 2026
+        </div>
+    </div>
+</body>
+</html>

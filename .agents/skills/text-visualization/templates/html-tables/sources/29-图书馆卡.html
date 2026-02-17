@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图书馆卡片</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Courier New", monospace;
+            background: #d4c4a8;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 20px;
+            color: #5c4033;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .library-card {
+            background: #f5f5dc;
+            border: 2px solid #8b7355;
+            box-shadow: 
+                3px 3px 0 #8b7355,
+                6px 6px 0 rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background: #8b7355;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .book-info {
+            border-bottom: 1px solid #d4c4a8;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .label {
+            font-size: 10px;
+            color: #8b7355;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .value {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .value.title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .checkout-table {
+            width: 100%;
+            font-size: 12px;
+            border-collapse: collapse;
+        }
+        .checkout-table th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 2px solid #8b7355;
+            color: #5c4033;
+        }
+        .checkout-table td {
+            padding: 8px;
+            border-bottom: 1px solid #d4c4a8;
+        }
+        .due-soon {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .card-footer {
+            background: #f0e6d2;
+            padding: 15px 25px;
+            font-size: 11px;
+            color: #666;
+            border-top: 1px solid #d4c4a8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Library Checkout Record</div>
+        <div class="library-card">
+            <div class="card-header">BORROWER'S CARD</div>
+            <div class="card-body">
+                <div class="book-info">
+                    <div class="label">Title</div>
+                    <div class="value title">Pattern Recognition and Machine Learning</div>
+                    
+                    <div class="label">Author</div>
+                    <div class="value">Christopher M. Bishop</div>
+                    
+                    <div class="label">Call Number</div>
+                    <div class="value">Q327 .B52 2006</div>
+                </div>
+                
+                <div class="label">Checkout History</div>
+                <table class="checkout-table">
+                    <thead>
+                        <tr>
+                            <th>Date Out</th>
+                            <th>Due Date</th>
+                            <th>Returned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026-01-15</td>
+                            <td>2026-02-15</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>2025-11-03</td>
+                            <td>2025-12-03</td>
+                            <td>2025-11-28</td>
+                        </tr>
+                        <tr>
+                            <td>2025-08-20</td>
+                            <td>2025-09-20</td>
+                            <td>2025-09-15</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                PLEASE RETURN BY DUE DATE | RENEWALS: 2 | FINES: $0.00
+            </div>
+        </div>
+    </div>
+</body>
+</html>

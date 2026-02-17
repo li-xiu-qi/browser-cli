@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Study Board</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #8b7355;
+            padding: 40px;
+            background-image: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(0,0,0,0.05) 50px,
+                    rgba(0,0,0,0.05) 51px
+                );
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .board-title {
+            color: #fff;
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        .board {
+            background: #f5f5dc;
+            padding: 30px;
+            box-shadow: 
+                0 10px 40px rgba(0,0,0,0.4),
+                inset 0 0 100px rgba(0,0,0,0.1);
+            border: 8px solid #6b5344;
+        }
+        .pins-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        .pinned-item {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
+            position: relative;
+            transform: rotate(-1deg);
+        }
+        .pinned-item:nth-child(even) {
+            transform: rotate(1deg);
+        }
+        .pinned-item:nth-child(3) {
+            transform: rotate(-2deg);
+        }
+        .pin {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .pin-red { background: #c92a2a; }
+        .pin-blue { background: #1971c2; }
+        .pin-green { background: #2b8a3e; }
+        .pin-yellow { background: #f59f00; }
+        .item-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .item-content {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .item-date {
+            font-size: 11px;
+            color: #888;
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="board-title">STUDY BOARD</div>
+        <div class="board">
+            <div class="pins-grid">
+                <div class="pinned-item">
+                    <div class="pin pin-red"></div>
+                    <div class="item-title">This Week's Goal</div>
+                    <div class="item-content">
+                        Complete Chapter 3-4 of Deep Learning book. Finish 3 coding exercises.
+                    </div>
+                    <div class="item-date">Due: Feb 12</div>
+                </div>
+                
+                <div class="pinned-item">
+                    <div class="pin pin-blue"></div>
+                    <div class="item-title">Reading List</div>
+                    <div class="item-content">
+                        - "Attention Is All You Need"<br>
+                        - "The Annotated Transformer"<br>
+                        - Distill.pub articles
+                    </div>
+                    <div class="item-date">Priority: High</div>
+                </div>
+                
+                <div class="pinned-item">
+                    <div class="pin pin-yellow"></div>
+                    <div class="item-title">Key Insight</div>
+                    <div class="item-content">
+                        "The bitter lesson": General methods that leverage computation ultimately win over handcrafted knowledge.
+                    </div>
+                    <div class="item-date">From: Sutton 2019</div>
+                </div>
+                
+                <div class="pinned-item">
+                    <div class="pin pin-green"></div>
+                    <div class="item-title">Completed</div>
+                    <div class="item-content">
+                        - CS229 Week 3 videos<br>
+                        - Python data structures review<br>
+                        - Set up Jupyter environment
+                    </div>
+                    <div class="item-date">Great progress!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

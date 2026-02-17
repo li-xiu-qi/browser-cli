@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>明信片 Postcard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe Print', 'Bradley Hand', 'Chalkboard SE', cursive;
+            background: #c9b99a;
+            padding: 40px;
+            color: #3d3d3d;
+        }
+        
+        .postcard {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fffef8;
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            min-height: 450px;
+        }
+        
+        .postcard-left {
+            flex: 1;
+            padding: 30px;
+            border-right: 1px solid #d0c4b0;
+        }
+        
+        .postcard-right {
+            width: 280px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 70px;
+            background: #c0392b;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            transform: rotate(5deg);
+            opacity: 0.9;
+        }
+        
+        .stamp::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px dashed rgba(255,255,255,0.5);
+        }
+        
+        .postmark {
+            position: absolute;
+            top: 100px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            color: #333;
+            opacity: 0.6;
+            transform: rotate(-10deg);
+        }
+        
+        .message-area {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .address-lines {
+            margin-top: 40px;
+        }
+        
+        .address-line {
+            border-bottom: 1px solid #999;
+            height: 35px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+        }
+        
+        .table-section {
+            margin-top: 20px;
+        }
+        
+        .mini-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Georgia, serif;
+            font-size: 12px;
+        }
+        
+        .mini-table th {
+            text-align: left;
+            padding: 6px 8px;
+            background: rgba(0,0,0,0.05);
+            border-bottom: 1px solid #999;
+        }
+        
+        .mini-table td {
+            padding: 8px;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .illustration {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #87CEEB 0%, #E0F6FF 50%, #98D8C8 100%);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+    <div class="postcard">
+        <div class="postcard-left">
+            <div class="illustration">🌄</div>
+            
+            <div class="table-section">
+                <table class="mini-table">
+                    <thead>
+                        <tr>
+                            <th>景点</th>
+                            <th>体验</th>
+                            <th>评分</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>知识山顶</td>
+                            <td>视野开阔</td>
+                            <td>★★★★★</td>
+                        </tr>
+                        <tr>
+                            <td>技能湖畔</td>
+                            <td>宁静深邃</td>
+                            <td>★★★★☆</td>
+                        </tr>
+                        <tr>
+                            <td>项目森林</td>
+                            <td>充满挑战</td>
+                            <td>★★★★★</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="postcard-right">
+            <div class="stamp">
+                <div style="font-size: 20px;">✈</div>
+                <div>AIR MAIL</div>
+            </div>
+            
+            <div class="postmark">
+                <div>LEARNING</div>
+                <div style="font-size: 16px; font-weight: bold;">2026</div>
+                <div>FEB 05</div>
+            </div>
+            
+            <div class="message-area">
+                <div class="greeting">Hi there,</div>
+                <p style="margin-bottom: 10px;">正在学习之旅中！</p>
+                <p style="margin-bottom: 10px;">今天完成了：</p>
+                <p>→ 阅读 2 章</p>
+                <p>→ 笔记 5 条</p>
+                <p>→ 项目推进 30%</p>
+                <p style="margin-top: 15px;">Wish you were here!</p>
+            </div>
+            
+            <div class="address-lines">
+                <div class="address-line">TO: 未来的自己</div>
+                <div class="address-line">FROM: 现在的你</div>
+                <div class="address-line"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

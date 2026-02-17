@@ -1,0 +1,22 @@
+{
+  "name": "obsidian-vault-tools",
+  "version": "1.0.0",
+  "description": "Obsidian 知识库工具集 - 共享依赖环境",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "playwright": "^1.40.0",
+    "puppeteer": "^24.36.1",
+    "jsdom": "^27.4.0",
+    "turndown": "^7.2.2",
+    "defuddle": "^0.6.6",
+    "dompurify": "^3.3.1",
+    "fast-xml-parser": "^5.2.0",
+    "lodash": "^4.17.21",
+    "commander": "^14.0.3",
+    "adm-zip": "^0.5.16",
+    "node-html-markdown": "^1.3.0",
+    "pdf-lib": "^1.17.1",
+    "sharp": "^0.34.5"
+  }
+}

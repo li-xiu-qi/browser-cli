@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>番茄钟记录</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, sans-serif;
+            background: #fff;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        .tomato {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e74c3c;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+        }
+        .log-list {
+            border-top: 2px solid #f0f0f0;
+        }
+        .log-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .log-time {
+            width: 60px;
+            font-size: 13px;
+            color: #999;
+        }
+        .log-icon {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .log-icon.work { background: #e74c3c; }
+        .log-icon.break { background: #27ae60; }
+        .log-task {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+        .log-duration {
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="tomato">🍅</div>
+            <div class="title">Today's Pomodoro Log</div>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Pomodoros</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3h 20m</div>
+                <div class="stat-label">Focus Time</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">94%</div>
+                <div class="stat-label">Completion</div>
+            </div>
+        </div>
+        <div class="log-list">
+            <div class="log-item">
+                <div class="log-time">09:00</div>
+                <div class="log-icon work"></div>
+                <div class="log-task">Deep Learning Chapter 3</div>
+                <div class="log-duration">25 min</div>
+            </div>
+            <div class="log-item">
+                <div class="log-time">09:30</div>
+                <div class="log-icon break"></div>
+                <div class="log-task">Short Break</div>
+                <div class="log-duration">5 min</div>
+            </div>
+            <div class="log-item">
+                <div class="log-time">09:35</div>
+                <div class="log-icon work"></div>
+                <div class="log-task">Practice Problems</div>
+                <div class="log-duration">25 min</div>
+            </div>
+            <div class="log-item">
+                <div class="log-time">10:00</div>
+                <div class="log-icon break"></div>
+                <div class="log-task">Short Break</div>
+                <div class="log-duration">5 min</div>
+            </div>
+            <div class="log-item">
+                <div class="log-time">10:05</div>
+                <div class="log-icon work"></div>
+                <div class="log-task">Code Review</div>
+                <div class="log-duration">25 min</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

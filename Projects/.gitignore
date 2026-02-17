@@ -1,0 +1,24 @@
+# Projects 目录 Git 管理规则
+# 只保留 Markdown 笔记和项目级 Skill，不保留代码项目
+
+# 忽略所有文件
+*
+
+# 但保留目录结构
+!*/
+
+# 保留 Markdown 文件（笔记和索引）
+!*.md
+!*.markdown
+
+# 保留 .gitignore 本身
+!.gitignore
+
+# 保留项目级 Skill（如果有）
+!.agents/
+!.agents/**/
+!.agents/**/*
+
+# 保留 README（如果有）
+!README
+!README.txt

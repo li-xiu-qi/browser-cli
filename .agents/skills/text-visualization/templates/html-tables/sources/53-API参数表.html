@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 参数表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+            background: #fff;
+            padding: 40px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #264653;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #264653;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            border: 1.5px solid #000;
+        }
+        
+        th {
+            background: #264653;
+            color: #fff;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        
+        td {
+            padding: 10px 14px;
+            border: 1px solid #000;
+            color: #000;
+        }
+        
+        .param {
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 12px;
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+        
+        .type {
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 12px;
+            color: #2a9d8f;
+            font-weight: 600;
+        }
+        
+        .required {
+            background: #e76f51;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 11px;
+        }
+        
+        .optional {
+            background: #e9c46a;
+            color: #333;
+            padding: 2px 8px;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">POST /api/v1/agent/run</div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>参数</th>
+                    <th>类型</th>
+                    <th>必需</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="param">agent_id</span></td>
+                    <td><span class="type">string</span></td>
+                    <td><span class="required">是</span></td>
+                    <td>Agent 唯一标识符</td>
+                </tr>
+                <tr>
+                    <td><span class="param">prompt</span></td>
+                    <td><span class="type">string</span></td>
+                    <td><span class="required">是</span></td>
+                    <td>用户输入提示词</td>
+                </tr>
+                <tr>
+                    <td><span class="param">tools</span></td>
+                    <td><span class="type">array</span></td>
+                    <td><span class="optional">否</span></td>
+                    <td>指定可用工具列表</td>
+                </tr>
+                <tr>
+                    <td><span class="param">max_steps</span></td>
+                    <td><span class="type">integer</span></td>
+                    <td><span class="optional">否</span></td>
+                    <td>最大执行步数，默认10</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

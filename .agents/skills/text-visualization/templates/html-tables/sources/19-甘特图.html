@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>甘特图</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, sans-serif;
+            background: #fff;
+            padding: 40px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .gantt {
+            display: grid;
+            grid-template-columns: 150px repeat(12, 1fr);
+            gap: 1px;
+            background: #f0f0f0;
+            border: 1px solid #e0e0e0;
+        }
+        .gantt-header {
+            background: #333;
+            color: white;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .gantt-label {
+            background: #f8f9fa;
+            padding: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        .gantt-cell {
+            background: white;
+            height: 45px;
+            position: relative;
+        }
+        .gantt-bar {
+            position: absolute;
+            height: 24px;
+            top: 10px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+            font-size: 11px;
+            color: white;
+            font-weight: 500;
+        }
+        .bar-1 { background: #4ecdc4; }
+        .bar-2 { background: #ffe66d; color: #333; }
+        .bar-3 { background: #ff6b6b; }
+        .bar-4 { background: #95e1d3; color: #333; }
+        .milestone {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid #ff6b6b;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">项目进度甘特图</div>
+        <div class="gantt">
+            <div class="gantt-header">任务</div>
+            <div class="gantt-header">W1</div>
+            <div class="gantt-header">W2</div>
+            <div class="gantt-header">W3</div>
+            <div class="gantt-header">W4</div>
+            <div class="gantt-header">W5</div>
+            <div class="gantt-header">W6</div>
+            <div class="gantt-header">W7</div>
+            <div class="gantt-header">W8</div>
+            <div class="gantt-header">W9</div>
+            <div class="gantt-header">W10</div>
+            <div class="gantt-header">W11</div>
+            <div class="gantt-header">W12</div>
+            
+            <div class="gantt-label">需求分析</div>
+            <div class="gantt-cell">
+                <div class="gantt-bar bar-1" style="left: 0; width: 200%;">需求</div>
+            </div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            
+            <div class="gantt-label">系统设计</div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell">
+                <div class="gantt-bar bar-2" style="left: -100%; width: 150%;">设计</div>
+            </div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            
+            <div class="gantt-label">开发实现</div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell">
+                <div class="gantt-bar bar-3" style="left: -400%; width: 400%;">开发</div>
+            </div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            
+            <div class="gantt-label">测试验收</div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell">
+                <div class="gantt-bar bar-4" style="left: -700%; width: 200%;">测试</div>
+            </div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+            <div class="gantt-cell"></div>
+        </div>
+    </div>
+</body>
+</html>

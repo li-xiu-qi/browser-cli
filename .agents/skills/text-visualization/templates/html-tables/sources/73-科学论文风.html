@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学论文风</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Latin Modern Roman", "Computer Modern", Georgia, serif;
+            background: #fff;
+            padding: 60px 80px;
+            color: #000;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .table-num {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        
+        .table-title {
+            font-size: 11px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+            margin: 20px 0;
+        }
+        
+        thead {
+            border-top: 2px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        
+        tbody {
+            border-bottom: 2px solid #000;
+        }
+        
+        th {
+            padding: 8px 10px;
+            text-align: left;
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        td {
+            padding: 6px 10px;
+            text-align: left;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .num {
+            text-align: right;
+            font-family: "Latin Modern Math", monospace;
+        }
+        
+        .highlight {
+            font-weight: bold;
+        }
+        
+        .note {
+            font-size: 9pt;
+            margin-top: 10px;
+            text-align: left;
+        }
+        
+        .note-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="table-num">Table 1:</div>
+            <div class="table-title">Performance comparison of different agent architectures under standard benchmark conditions.</div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Architecture</th>
+                    <th>Latency (ms)</th>
+                    <th>Throughput (req/s)</th>
+                    <th>Accuracy (%)</th>
+                    <th>Cost ($/k)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ToolCallingAgent</td>
+                    <td class="num">245</td>
+                    <td class="num">1,240</td>
+                    <td class="num highlight">94.2</td>
+                    <td class="num">0.12</td>
+                </tr>
+                <tr>
+                    <td>CodeAgent</td>
+                    <td class="num">189</td>
+                    <td class="num">1,580</td>
+                    <td class="num">91.7</td>
+                    <td class="num">0.08</td>
+                </tr>
+                <tr>
+                    <td>MultiStepAgent</td>
+                    <td class="num highlight">412</td>
+                    <td class="num">680</td>
+                    <td class="num highlight">96.8</td>
+                    <td class="num">0.24</td>
+                </tr>
+                <tr>
+                    <td>PlanningAgent</td>
+                    <td class="num">356</td>
+                    <td class="num">820</td>
+                    <td class="num">95.3</td>
+                    <td class="num">0.31</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="note">
+            <span class="note-label">Note.</span> Measurements taken under standard load (100 concurrent users). 
+            Highlighted values indicate best performance in respective categories.
+        </div>
+    </div>
+</body>
+</html>

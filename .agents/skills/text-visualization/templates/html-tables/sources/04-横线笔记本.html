@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>笔记本纸张</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Comic Sans MS", "Chalkboard", cursive;
+            background: #f7f5e6;
+            padding: 40px;
+            background-image: 
+                linear-gradient(#e8e4d0 1px, transparent 1px);
+            background-size: 100% 28px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fffef8;
+            padding: 30px 40px;
+            box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+            transform: rotate(-0.5deg);
+        }
+        .date {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            line-height: 28px;
+        }
+        th {
+            text-align: left;
+            padding: 0 10px;
+            color: #666;
+            font-weight: normal;
+            border-bottom: 2px solid #333;
+        }
+        td {
+            padding: 0 10px;
+            border-bottom: 1px solid #e0ddd0;
+        }
+        .checkbox {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #333;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .checked .checkbox {
+            background: #333;
+        }
+        .checked td {
+            text-decoration: line-through;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="date">2026.02.05 | Study Notes</div>
+        <div class="title">Today's Learning Goals</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40px;"></th>
+                    <th>Topic</th>
+                    <th>Time</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="checked">
+                    <td><span class="checkbox"></span></td>
+                    <td>Read Chapter 3</td>
+                    <td>45 min</td>
+                    <td>Key concepts understood</td>
+                </tr>
+                <tr class="checked">
+                    <td><span class="checkbox"></span></td>
+                    <td>Practice exercises</td>
+                    <td>60 min</td>
+                    <td>5/6 correct</td>
+                </tr>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td>Watch lecture video</td>
+                    <td>30 min</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td><span class="checkbox"></span></td>
+                    <td>Review notes</td>
+                    <td>15 min</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

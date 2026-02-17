@@ -1,0 +1,164 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+.obsidian/cache/
+.obsidian/plugins/*/
+!.obsidian/plugins/*/data.json
+.obsidian/plugins/*/node_modules/
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Temporary and Logs
+.gemini/tmp/
+.gemini/**/user_data/
+.gemini/**/Cache/
+transcript_outputs/.temp_ogg/
+**/*.log
+**/__pycache__/
+**/.pytest_cache/
+**/.ipynb_checkpoints/
+
+# Media and Large Binaries (Global)
+media_downloads/
+cliper_datas/
+resources/参考项目/
+0_Inbox/*.pdf
+**/*.mp4
+**/*.m4a
+**/*.mp3
+**/*.wav
+**/*.zip
+**/*.7z
+**/*.tar.gz
+**/*.exe
+**/*.bin
+**/*.csv
+**/*.pkl
+**/*.gif
+
+# Development (Recursive)
+**/node_modules/
+**/.env
+**/.venv/
+**/venv/
+**/*.pyc
+**/*.egg-info/
+dist/
+build/
+
+# Smart Env & External Reference
+.smart-env/
+
+# MCP Config (Contains sensitive tokens)
+.kimi/mcp.json
+.kimi/settings.local.json
+
+# Personal Credentials & Secrets
+resources/个人信息/
+**/*凭证*
+**/*credentials*
+**/secrets*
+Archives/工具源码/
+Archives/慢编程项目/
+
+# Browser User Data (Contains login cookies)
+.agents/browser_user_data/
+.agents/**/browser_user_data/
+.agents/**/node_modules/
+.agents/**/__pycache__/
+.agents/**/*.pyc
+.agents/**/.pytest_cache/
+.agents/**/dist/
+.agents/**/build/
+.agents/**/.env
+.agents/**/*.log
+**/*_user_data/Chrome/
+**/*_user_data/Default/
+**/*_user_data/*.log
+
+# ============================================
+# Projects & Resources 目录管理
+# 这两个目录各自有 .gitignore，只保留 .md 文件
+# 详细规则见 Projects/.gitignore 和 Resources/.gitignore
+# ============================================
+
+# ============================================
+# AI 工具软链接目录（重复内容，只保留 .agents/）
+# ============================================
+.agent/
+.claude/
+.gemini/
+.kimi/
+
+# ============================================
+# 下载的书籍（大文件，不跟踪）
+# ============================================
+.agents/skills/resources/downloads/books/
+.agent/skills/resources/downloads/books/
+.claude/skills/resources/downloads/books/
+.gemini/skills/resources/downloads/books/
+.kimi/skills/resources/downloads/books/
+
+# ============================================
+# AI Agent Personal Configurations (Ignore)
+# 只忽略个人配置，保留代码和文档
+# ============================================
+
+# 个人配置（含敏感信息或个人偏好）
+**/.agent/settings.local.json
+**/.agent/mcp.json
+**/.agents/settings.local.json
+**/.agents/mcp.json
+!/.agent/mcp.json.example
+!/.gemini/mcp.json.example
+
+# 浏览器数据（含登录态）
+**/*_user_data/
+**/browser_user_data/
+
+# 开发环境文件
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/dist/
+**/build/
+**/.env
+**/*.log
+
+# 其他 AI 工具根目录（如果不需要）
+.cline/
+.codebuddy/
+.commandcode/
+.continue/
+.crush/
+.cursor/
+.factory/
+.goose/
+.kilocode/
+.kiro/
+.mcpjam/
+.mux/
+.neovate/
+.opencode/
+.openhands/
+.pi/
+.qoder/
+.qwen/
+.roo/
+.trae/
+.windsurf/
+.zencoder/
+
+# ============================================
+# Projects 和 Resources 目录的特殊处理
+# 这些目录下有独立的 .gitignore 控制
+# 策略：只保留 Markdown 文件和索引，忽略代码项目
+# ============================================
+# 详见 Projects/.gitignore 和 Resources/.gitignore

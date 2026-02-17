@@ -1,0 +1,114 @@
+[
+  {
+    "name": "XSRF-TOKEN",
+    "value": "7a2b9837-7e1a-4e71-93f6-d97072a9c677",
+    "domain": "passport.qianwen.com",
+    "path": "/havanaone",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "JSESSIONID",
+    "value": "045C4627D298F262322455730B3A3FC2",
+    "domain": "passport.qianwen.com",
+    "path": "/havanaone",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "XSRF-TOKEN",
+    "value": "1d25e7dd-83aa-4aea-b322-fae2080b2ddf",
+    "domain": "www.qianwen.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "UM_distinctid",
+    "value": "19bb2454e66a2d-0005902f208aac8-26061a51-e1000-19bb2454e67dba",
+    "domain": ".qianwen.com",
+    "path": "/",
+    "expires": 1783947245,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "CNZZDATA1281448031",
+    "value": "1372167189-1768222445-%7C1768222445",
+    "domain": "www.qianwen.com",
+    "path": "/",
+    "expires": 1783947245,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "__itrace_wid",
+    "value": "adf6bd16-818b-409b-a852-f20cea8751dc",
+    "domain": "www.qianwen.com",
+    "path": "/",
+    "expires": 1783774445.35,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "b-user-id",
+    "value": "4eb8a9a1-c227-3fcd-dd0c-65961d960505",
+    "domain": "www.qianwen.com",
+    "path": "/",
+    "expires": 1799758459,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "arms_uid",
+    "value": "6c019c2d-69ee-43a1-8b84-43fbb8271721",
+    "domain": "passport.qianwen.com",
+    "path": "/",
+    "expires": 1783774476.067533,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None",
+    "partitionKey": "https://qianwen.com",
+    "_crHasCrossSiteAncestor": false
+  },
+  {
+    "name": "tongyi_sso_ticket",
+    "value": "WpAzkV1_LrekU*tntMAHELF6sFvJ_vnhhnCo414tLdGYB8Er_YOa9sn5G1RDUOcB0",
+    "domain": ".qianwen.com",
+    "path": "/",
+    "expires": 1802782493.98302,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "tongyi_sso_ticket_hash",
+    "value": "532739963f686241c325a6d36e2906ad",
+    "domain": ".qianwen.com",
+    "path": "/",
+    "expires": 1802782493.983088,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "tfstk",
+    "value": "g-4EfEYLOwQepxX0gS0P7jfuU2uKy4WXqzMSZ7VoOvDnPMHoE7etNUNoAauzQSEIV7XLUzkgK6K5v7gzURyqK4gQRarrIRDQdkN7bQPYQ8oR9YMoU8NuA1_flWFKy4DPhZ_XUz6ukykkF40KSsJMaC_flWFny4XfhZZIaWos3Y0ox0YgsAhWq4moq1kiajKkK80l_1ktZ4DuE4fZSAhorY2or1kI00m27bnh6ewpSA2oTDk0tAVL9PcehxVnQUYlNXoFfWDwrU4aq58L3vjv1Y3IpzlUeZLK-0rYNbyF8e2zMPeZs-bylvVTGoiL-gTj02MEjy2PU3lUcJy-KWvHxjuELm4nXIfo50qa72ahenF__vmq5lsOd0gULoHxxGBTU5kQEyoMLOM7c5anb-X678nzD7GzLw83nglyefblV1XXE3mn6fkf_1xjHrGIdhKao3K-AdhZh6fH23nUtUtUoAKJ2Dnx_x1hK",
+    "domain": ".qianwen.com",
+    "path": "/",
+    "expires": 1783774493,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  }
+]

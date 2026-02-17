@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横向步骤流程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #fff;
+            padding: 40px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #264653;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #264653;
+        }
+        
+        .flow {
+            display: flex;
+            border: 1.5px solid #000;
+        }
+        
+        .step {
+            flex: 1;
+            border-right: 1px solid #000;
+            position: relative;
+        }
+        
+        .step:last-child {
+            border-right: none;
+        }
+        
+        .step-num {
+            background: #264653;
+            color: #fff;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            border-bottom: 1px solid #000;
+        }
+        
+        .step-content {
+            padding: 16px;
+            min-height: 100px;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #264653;
+        }
+        
+        .step-desc {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .arrow {
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 12px solid #000;
+            z-index: 10;
+        }
+        
+        .step:last-child .arrow {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Agent 执行流程</div>
+        
+        <div class="flow">
+            <div class="step">
+                <div class="step-num">STEP 1</div>
+                <div class="step-content">
+                    <div class="step-title">接收输入</div>
+                    <div class="step-desc">解析用户 prompt，提取意图和参数</div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            <div class="step">
+                <div class="step-num">STEP 2</div>
+                <div class="step-content">
+                    <div class="step-title">选择工具</div>
+                    <div class="step-desc">LLM 决定调用哪个 Tool</div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            <div class="step">
+                <div class="step-num">STEP 3</div>
+                <div class="step-content">
+                    <div class="step-title">执行行动</div>
+                    <div class="step-desc">运行 Tool，获取 Observation</div>
+                </div>
+                <div class="arrow"></div>
+            </div>
+            <div class="step">
+                <div class="step-num">STEP 4</div>
+                <div class="step-content">
+                    <div class="step-title">生成回复</div>
+                    <div class="step-desc">基于结果生成最终输出</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

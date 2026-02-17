@@ -1,0 +1,43 @@
+[project]
+name = "obsidian-notes"
+version = "0.1.0"
+description = "Obsidian 笔记专用知识库 Python 环境"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "requests>=2.32.5",
+    "matplotlib>=3.9.0",
+    "pandas>=2.2.0",
+    "anthropic>=0.79.0",
+    "python-dotenv>=1.2.1",
+    "rich>=14.3.2",
+    "openai>=2.17.0",
+    "openpyxl>=3.1.5",
+    "seaborn>=0.13.2",
+    "numpy>=2.4.2",
+    "playwright>=1.40.0",
+    "ebooklib>=0.18",
+    "lxml>=4.9.0",
+    "click>=8.1.0",
+    "networkx>=3.6.1",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "paddlepaddle",
+    "paddleocr",
+]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+]
+
+[tool.uv]
+python-downloads = "automatic"
+
+[tool.uv.workspace]
+members = [
+    "Projects/kimi-agent-sdk-test",
+]

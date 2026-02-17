@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑞士网格系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            color: #1a1a1a;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 0;
+        }
+        
+        .grid-system {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+        
+        .header {
+            grid-column: 1 / -1;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .meta-col {
+            grid-column: 1 / 3;
+            font-size: 11px;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .meta-label {
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .content-col {
+            grid-column: 3 / -1;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        thead {
+            border-bottom: 2px solid #1a1a1a;
+        }
+        
+        tbody {
+            border-bottom: 1px solid #1a1a1a;
+        }
+        
+        th {
+            text-align: left;
+            padding: 12px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+        
+        td {
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e5e5;
+            vertical-align: top;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .num {
+            font-family: "Helvetica Neue", monospace;
+            font-weight: 500;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .status.done {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .status.progress {
+            background: #ff3333;
+            color: #fff;
+        }
+        
+        .footer {
+            grid-column: 1 / -1;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+        }
+        
+        .highlight-box {
+            grid-column: 1 / -1;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 30px 40px;
+            margin: 20px -40px -40px -40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="grid-system">
+            <div class="header">
+                <div class="title">Project<br>Delivery Status</div>
+                <div class="subtitle">Q1 2026 Milestone Overview</div>
+            </div>
+            
+            <div class="meta-col">
+                <div><span class="meta-label">Client</span><br>Internal</div>
+                <div style="margin-top: 20px;"><span class="meta-label">Date</span><br>2026.02.06</div>
+                <div style="margin-top: 20px;"><span class="meta-label">Version</span><br>2.1.0</div>
+            </div>
+            
+            <div class="content-col">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 8%">No.</th>
+                            <th style="width: 35%">Task</th>
+                            <th style="width: 20%">Owner</th>
+                            <th style="width: 15%">Due</th>
+                            <th style="width: 22%">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="num">01</td>
+                            <td>API Gateway Implementation</td>
+                            <td>DevOps Team</td>
+                            <td class="num">Feb 10</td>
+                            <td><span class="status done">Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td class="num">02</td>
+                            <td>Database Migration</td>
+                            <td>Backend Team</td>
+                            <td class="num">Feb 15</td>
+                            <td><span class="status done">Complete</span></td>
+                        </tr>
+                        <tr>
+                            <td class="num">03</td>
+                            <td>Authentication Module</td>
+                            <td>Security Team</td>
+                            <td class="num">Feb 20</td>
+                            <td><span class="status progress">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td class="num">04</td>
+                            <td>Frontend Integration</td>
+                            <td>UI Team</td>
+                            <td class="num">Feb 25</td>
+                            <td><span class="status progress">In Progress</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="highlight-box">
+                <div class="stat-item">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label">Progress</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Tasks Done</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">4</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Blocked</div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <div>Swiss Design System</div>
+                <div>Page 01 / 04</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

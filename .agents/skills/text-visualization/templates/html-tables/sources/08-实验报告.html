@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实验报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Times New Roman", serif;
+            background: #fff;
+            padding: 60px;
+            color: #000;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        .lab-header {
+            border: 2px solid #000;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .lab-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .lab-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 12px;
+        }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+        .note {
+            font-size: 11px;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background: #fafafa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lab-header">
+            <div class="lab-title">Laboratory Report</div>
+            <div class="lab-info">
+                <div><strong>Date:</strong> 2026-02-05</div>
+                <div><strong>Exp. No:</strong> 2026-A-001</div>
+                <div><strong>Subject:</strong> Chemistry</div>
+                <div><strong>Group:</strong> A-3</div>
+            </div>
+        </div>
+        
+        <div class="section-title">1. Experiment Data</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trial</th>
+                    <th>Mass (g)</th>
+                    <th>Volume (mL)</th>
+                    <th>Density (g/mL)</th>
+                    <th>Deviation (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>25.42</td>
+                    <td>30.0</td>
+                    <td>0.847</td>
+                    <td>0.12</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>25.38</td>
+                    <td>30.0</td>
+                    <td>0.846</td>
+                    <td>0.24</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>25.45</td>
+                    <td>30.0</td>
+                    <td>0.848</td>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><strong>Average</strong></td>
+                    <td><strong>0.847</strong></td>
+                    <td><strong>0.12</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="note">
+            <strong>Note:</strong> All measurements were taken at 25°C. Standard deviation calculated from three trials.
+        </div>
+    </div>
+</body>
+</html>

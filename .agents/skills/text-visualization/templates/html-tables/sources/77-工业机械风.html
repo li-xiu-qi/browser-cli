@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工业机械风</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "JetBrains Mono", "Consolas", monospace;
+            background: #1a1a1a;
+            padding: 40px;
+            color: #e0e0e0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0d0d0d;
+            border: 1px solid #333;
+            padding: 35px;
+            position: relative;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .title-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            background: #00ff41;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 10px #00ff41;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .timestamp {
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .metric-card.critical {
+            border-color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .metric-card.critical .metric-value {
+            color: #ff6b35;
+        }
+        
+        .metric-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+        }
+        
+        .data-section {
+            border: 1px solid #333;
+            background: #1a1a1a;
+        }
+        
+        .section-header {
+            background: #262626;
+            padding: 12px 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            border-bottom: 1px solid #333;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        th {
+            text-align: left;
+            padding: 14px 20px;
+            border-bottom: 1px solid #333;
+            font-weight: 700;
+            color: #999;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        td {
+            padding: 14px 20px;
+            border-bottom: 1px solid #262626;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        tr:hover td {
+            background: #222;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 2px;
+        }
+        
+        .badge.online {
+            background: rgba(0, 255, 65, 0.15);
+            color: #00ff41;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+        
+        .badge.maintenance {
+            background: rgba(255, 107, 53, 0.15);
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .badge.offline {
+            background: rgba(102, 102, 102, 0.15);
+            color: #666;
+            border: 1px solid rgba(102, 102, 102, 0.3);
+        }
+        
+        .footer {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #555;
+        }
+        
+        .footer span {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-section">
+                <div class="status-indicator"></div>
+                <div class="title">Production Environment</div>
+            </div>
+            <div class="timestamp">2026-02-06 10:24:33 UTC</div>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value">99.99%</div>
+                <div class="metric-label">Uptime</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">24ms</div>
+                <div class="metric-label">Latency</div>
+            </div>
+            <div class="metric-card critical">
+                <div class="metric-value">87%</div>
+                <div class="metric-label">Memory</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1.2M</div>
+                <div class="metric-label">Requests</div>
+            </div>
+        </div>
+        
+        <div class="data-section">
+            <div class="section-header">Active Services</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Instance</th>
+                        <th>Region</th>
+                        <th>Load</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>api-gateway</td>
+                        <td>prod-ag-01</td>
+                        <td>us-east-1</td>
+                        <td>42%</td>
+                        <td><span class="badge online">Online</span></td>
+                    </tr>
+                    <tr>
+                        <td>user-service</td>
+                        <td>prod-us-03</td>
+                        <td>us-east-1</td>
+                        <td>68%</td>
+                        <td><span class="badge online">Online</span></td>
+                    </tr>
+                    <tr>
+                        <td>payment-core</td>
+                        <td>prod-pc-02</td>
+                        <td>eu-west-1</td>
+                        <td>--</td>
+                        <td><span class="badge maintenance">Maint</span></td>
+                    </tr>
+                    <tr>
+                        <td>notification</td>
+                        <td>prod-nt-01</td>
+                        <td>ap-south-1</td>
+                        <td>23%</td>
+                        <td><span class="badge online">Online</span></td>
+                    </tr>
+                    <tr>
+                        <td>analytics</td>
+                        <td>prod-an-04</td>
+                        <td>us-west-2</td>
+                        <td>0%</td>
+                        <td><span class="badge offline">Offline</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <div>INFRASTRUCTURE <span>DASHBOARD</span></div>
+            <div>SYS_VER <span>v3.2.1-stable</span></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粗野主义</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Courier New", "Space Mono", monospace;
+            background: #fff;
+            padding: 20px;
+            color: #000;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 4px solid #000;
+        }
+        
+        .header {
+            border-bottom: 4px solid #000;
+            padding: 30px;
+            background: #ff00ff;
+        }
+        
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1;
+            background: #000;
+            color: #ff00ff;
+            display: inline-block;
+            padding: 10px 20px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+        
+        .alert-box {
+            border-bottom: 4px solid #000;
+            padding: 20px 30px;
+            background: #ffff00;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .content {
+            padding: 0;
+        }
+        
+        .row {
+            display: flex;
+            border-bottom: 4px solid #000;
+        }
+        
+        .row:last-child {
+            border-bottom: none;
+        }
+        
+        .cell {
+            flex: 1;
+            padding: 25px 30px;
+            border-right: 4px solid #000;
+        }
+        
+        .cell:last-child {
+            border-right: none;
+        }
+        
+        .cell.header-cell {
+            background: #000;
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+        
+        .cell.highlight {
+            background: #00ffff;
+        }
+        
+        .cell.warning {
+            background: #ff6600;
+            color: #fff;
+        }
+        
+        .cell-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .cell-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        
+        .data-row {
+            display: flex;
+            border-bottom: 4px solid #000;
+        }
+        
+        .data-row:nth-child(odd) {
+            background: #f0f0f0;
+        }
+        
+        .data-cell {
+            flex: 1;
+            padding: 20px 30px;
+            border-right: 4px solid #000;
+            font-size: 14px;
+        }
+        
+        .data-cell:last-child {
+            border-right: none;
+        }
+        
+        .data-cell.index {
+            flex: 0 0 80px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .status-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 3px solid #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+        
+        .status-tag.ok {
+            background: #00ff00;
+        }
+        
+        .status-tag.warn {
+            background: #ff6600;
+            color: #fff;
+        }
+        
+        .footer {
+            border-top: 4px solid #000;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">SYSTEM STATUS</div>
+            <div class="subtitle">RAW DATA OUTPUT // DO NOT EDIT</div>
+        </div>
+        
+        <div class="alert-box">
+            ⚠ CRITICAL: 2 services require attention
+        </div>
+        
+        <div class="content">
+            <div class="row">
+                <div class="cell header-cell">Metric</div>
+                <div class="cell header-cell">Current</div>
+                <div class="cell header-cell">Target</div>
+                <div class="cell header-cell">Status</div>
+            </div>
+            
+            <div class="row">
+                <div class="cell">
+                    <div class="cell-number">99.9%</div>
+                    <div class="cell-label">Uptime</div>
+                </div>
+                <div class="cell highlight">
+                    <div class="cell-number">45ms</div>
+                    <div class="cell-label">Latency</div>
+                </div>
+                <div class="cell">
+                    <div class="cell-number">2.4k</div>
+                    <div class="cell-label">RPS</div>
+                </div>
+                <div class="cell warning">
+                    <div class="cell-number">68%</div>
+                    <div class="cell-label">CPU Load</div>
+                </div>
+            </div>
+            
+            <div class="data-row">
+                <div class="data-cell index">01</div>
+                <div class="data-cell">API Gateway</div>
+                <div class="data-cell">Operational</div>
+                <div class="data-cell"><span class="status-tag ok">OK</span></div>
+            </div>
+            
+            <div class="data-row">
+                <div class="data-cell index">02</div>
+                <div class="data-cell">Database Cluster</div>
+                <div class="data-cell">High Load</div>
+                <div class="data-cell"><span class="status-tag warn">WARN</span></div>
+            </div>
+            
+            <div class="data-row">
+                <div class="data-cell index">03</div>
+                <div class="data-cell">Cache Layer</div>
+                <div class="data-cell">Operational</div>
+                <div class="data-cell"><span class="status-tag ok">OK</span></div>
+            </div>
+            
+            <div class="data-row">
+                <div class="data-cell index">04</div>
+                <div class="data-cell">Message Queue</div>
+                <div class="data-cell">Degraded</div>
+                <div class="data-cell"><span class="status-tag warn">WARN</span></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div>BRUTALIST UI // V1.0</div>
+            <div>LAST UPDATE: 2026-02-06T10:24:00Z</div>
+        </div>
+    </div>
+</body>
+</html>

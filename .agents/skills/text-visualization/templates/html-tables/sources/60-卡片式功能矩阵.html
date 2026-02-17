@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡片式功能矩阵</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #264653;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #264653;
+        }
+        
+        .matrix {
+            display: grid;
+            grid-template-columns: 120px repeat(3, 1fr);
+            gap: 2px;
+            background: #000;
+            border: 1.5px solid #000;
+        }
+        
+        .cell {
+            background: #fff;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-row {
+            background: #264653;
+            color: #fff;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .header-col {
+            background: #e8f4f8;
+            font-weight: 600;
+            font-size: 12px;
+            justify-content: flex-start;
+        }
+        
+        .check {
+            width: 24px;
+            height: 24px;
+            background: #2a9d8f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .cross {
+            width: 24px;
+            height: 24px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .partial {
+            width: 24px;
+            height: 24px;
+            background: #e9c46a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">功能支持矩阵</div>
+        
+        <div class="matrix">
+            <div class="cell header-row">功能 / 版本</div>
+            <div class="cell header-row">Community</div>
+            <div class="cell header-row">Pro</div>
+            <div class="cell header-row">Enterprise</div>
+            
+            <div class="cell header-col">Code Agent</div>
+            <div class="cell"><div class="check">Y</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            
+            <div class="cell header-col">Tool Calling</div>
+            <div class="cell"><div class="check">Y</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            
+            <div class="cell header-col">Multi-Step</div>
+            <div class="cell"><div class="cross">-</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+            
+            <div class="cell header-col">Custom Tools</div>
+            <div class="cell"><div class="partial">5</div></div>
+            <div class="cell"><div class="partial">20</div></div>
+            <div class="cell"><div class="check">∞</div></div>
+            
+            <div class="cell header-col">Priority Support</div>
+            <div class="cell"><div class="cross">-</div></div>
+            <div class="cell"><div class="cross">-</div></div>
+            <div class="cell"><div class="check">Y</div></div>
+        </div>
+    </div>
+</body>
+</html>

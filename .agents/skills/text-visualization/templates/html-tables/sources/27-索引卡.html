@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>索引卡</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Georgia, serif;
+            background: #2c3e50;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .title {
+            color: #ecf0f1;
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .index-card {
+            background: #fff;
+            padding: 25px;
+            min-height: 200px;
+            box-shadow: 
+                1px 1px 3px rgba(0,0,0,0.2),
+                0 0 0 1px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .index-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: repeating-linear-gradient(
+                90deg,
+                #e74c3c 0px,
+                #e74c3c 15px,
+                transparent 15px,
+                transparent 20px
+            );
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .card-category {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+        }
+        .card-number {
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            color: #666;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+        .card-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .card-footer {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            font-size: 11px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">📇 Research Index Cards</div>
+        <div class="cards-container">
+            <div class="index-card">
+                <div class="card-header">
+                    <span class="card-category">Concept</span>
+                    <span class="card-number">#001</span>
+                </div>
+                <div class="card-title">Overfitting</div>
+                <div class="card-content">
+                    Model performs well on training data but poorly on test data. Indicates memorization rather than learning.
+                </div>
+                <div class="card-footer">
+                    Source: ESL Chapter 7 | Added: Feb 5
+                </div>
+            </div>
+            
+            <div class="index-card">
+                <div class="card-header">
+                    <span class="card-category">Formula</span>
+                    <span class="card-number">#002</span>
+                </div>
+                <div class="card-title">Cross-Entropy Loss</div>
+                <div class="card-content">
+                    L = -Σ yᵢ log(ŷᵢ)<br><br>
+                    Measures difference between predicted and actual probability distributions.
+                </div>
+                <div class="card-footer">
+                    Source: DL Book Ch.3 | Added: Feb 4
+                </div>
+            </div>
+            
+            <div class="index-card">
+                <div class="card-header">
+                    <span class="card-category">Method</span>
+                    <span class="card-number">#003</span>
+                </div>
+                <div class="card-title">Cross-Validation</div>
+                <div class="card-content">
+                    k-fold: Split data into k subsets. Train on k-1, test on 1. Rotate. Average results.
+                </div>
+                <div class="card-footer">
+                    Source: CS229 Notes | Added: Feb 3
+                </div>
+            </div>
+            
+            <div class="index-card">
+                <div class="card-header">
+                    <span class="card-category">Paper</span>
+                    <span class="card-number">#004</span>
+                </div>
+                <div class="card-title">Attention Is All You Need</div>
+                <div class="card-content">
+                    Vaswani et al. 2017. Introduced Transformer architecture. Removed RNN/CNN, used self-attention only.
+                </div>
+                <div class="card-footer">
+                    Source: arXiv:1706.03762 | Added: Feb 2
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
