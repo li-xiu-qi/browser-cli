@@ -46,6 +46,10 @@ That means two different workflows matter:
 - the first successful attachment
 - reusing an already approved daemon
 
+If Chrome shows an approval dialog, allow access only for trusted local tools:
+
+![Chrome remote debugging approval dialog](./assets/chrome-current-browser-remote-debugging-approval-dialog.png)
+
 If a daemon is already healthy, prefer:
 
 ```cmd
