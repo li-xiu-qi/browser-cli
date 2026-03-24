@@ -1,0 +1,50 @@
+{
+  "name": "browser-cli",
+  "version": "0.3.0",
+  "type": "commonjs",
+  "description": "Standalone local daemon and CLI for controlling the current Chrome through native CDP",
+  "license": "MIT",
+  "author": "Li Xiu Qi",
+  "homepage": "https://github.com/li-xiu-qi/browser-cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/li-xiu-qi/browser-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/li-xiu-qi/browser-cli/issues"
+  },
+  "keywords": [
+    "chrome",
+    "cdp",
+    "browser",
+    "automation",
+    "daemon",
+    "cli",
+    "windows",
+    "agent",
+    "skill"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "browser-cli": "./src/cli.js"
+  },
+  "scripts": {
+    "doctor": "node src/cli.js doctor",
+    "start": "node src/cli.js start",
+    "serve": "node src/cli.js serve",
+    "status": "node src/cli.js status",
+    "stop": "node src/cli.js stop",
+    "tools": "node src/cli.js tools"
+  },
+  "files": [
+    "README.md",
+    "SKILL.md",
+    "LICENSE",
+    "agents",
+    "src",
+    "bin",
+    "docs"
+  ]
+}

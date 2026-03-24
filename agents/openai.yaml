@@ -1,0 +1,7 @@
+interface:
+  display_name: "Browser CLI"
+  short_description: "Control the current Chrome through a local native CDP daemon."
+  default_prompt: "Use $browser-cli to control the current Chrome through the local browser-cli daemon."
+
+policy:
+  allow_implicit_invocation: true
