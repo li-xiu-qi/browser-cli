@@ -1,6 +1,6 @@
 ---
 title: "Skill 市场记录"
-updated: "2026-01-07"
+updated: "2026-03-13"
 tags:
   - "resource/skill"
 ---
@@ -8,6 +8,11 @@ tags:
 # 🌐 Skill 市场记录
 
 本文件记录优质的外部 Skill 交易市场、开源库及社区资源。
+
+## 当前分流
+
+- Claude Code 相关：[[Claude Code Skill资源索引]]
+- OpenClaw 相关：[[OpenClaw插件资源]]
 
 ## 🏪 Skill 市场
 
@@ -23,4 +28,3 @@ tags:
 5. https://skillsmp.com
 6. https://aitmpl.com/skills
 7. https://claudemarketplaces.com
-

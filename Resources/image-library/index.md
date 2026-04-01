@@ -1,6 +1,6 @@
 # 图片库索引
 
-> 共 4 张图片 | 最后更新：2026-02-16
+> 共 6 张图片 | 最后更新：2026-03-20
 
 ---
 
@@ -58,6 +58,24 @@
 ---
 
 
+## 数据+AI算法赋能项目架构图参考图
+
+**文件夹：** [`data-ai-project-architecture/`](./data-ai-project-architecture/)
+
+![数据+AI算法赋能项目架构图参考图](./data-ai-project-architecture/image.png)
+
+| 属性 | 内容 |
+|------|------|
+| **标题** | 数据+AI算法赋能项目架构图参考图 |
+| **主题** | 数据+AI项目架构 |
+| **风格** | 蓝色科技感架构图 |
+| **标签** | `数据` `AI` `架构图` `项目设计` `蓝色科技感` `数据流` |
+| **质量** | high |
+| **水印** | 无 |
+
+---
+
+
 ## Peter Steinberger宣布加入OpenAI并分享OpenClaw未来愿景
 
 **文件夹：** [`peter-steinberger-openai-announcement/`](./peter-steinberger-openai-announcement/)
@@ -72,6 +90,24 @@
 | **标签** | `OpenAI` `OpenClaw` `人工智能` `智能代理` `技术未来` `Peter Steinberger` |
 | **质量** | high |
 | **水印** | 无 |
+
+---
+
+
+## 粉色Q版少女与猪猪四格漫画参考图
+
+**文件夹：** [`pink-chibi-girl-pigs-4panel-reference/`](./pink-chibi-girl-pigs-4panel-reference/)
+
+![粉色Q版少女与猪猪四格漫画参考图](./pink-chibi-girl-pigs-4panel-reference/image.png)
+
+| 属性 | 内容 |
+|------|------|
+| **标题** | 粉色Q版少女与猪猪四格漫画参考图 |
+| **主题** | 粉色Q版少女与猪猪 |
+| **风格** | 四格漫画插画 |
+| **标签** | `粉色系` `Q版` `少女` `猪猪` `四格漫画` `治愈感` |
+| **质量** | high |
+| **水印** | 有 |
 
 ---
 
@@ -96,16 +132,16 @@
 }
 ```
 
-4. 运行 `python .agents/tools/image-analyzer/update_index.py` 更新索引
+4. 运行 `python .agents/tools/image-tools/image-analyzer/update_index.py` 更新索引
 
 ### 更新索引
 
 ```bash
 # 在仓库根目录运行
-python .agents/tools/image-analyzer/update_index.py
+python .agents/tools/image-tools/image-analyzer/update_index.py
 
 # 或指定图片库路径
-python .agents/tools/image-analyzer/update_index.py resources/image-library/
+python .agents/tools/image-tools/image-analyzer/update_index.py resources/image-library/
 ```
 
 ---

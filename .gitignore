@@ -15,6 +15,14 @@ desktop.ini
 $RECYCLE.BIN/
 
 # Temporary and Logs
+# Repo-scoped scratch space for temporary workspaces, previews, and debug output.
+# Any new one-off temp directory should go under `.runtime/` instead of the repo root.
+.runtime/
+.tmp/
+/tmp-lark-token/
+/.tmp-lark-token/
+/tmp_lark_mcp_streamable*.log
+/md2feishu-test.md
 .gemini/tmp/
 .gemini/**/user_data/
 .gemini/**/Cache/
@@ -28,6 +36,19 @@ transcript_outputs/.temp_ogg/
 media_downloads/
 cliper_datas/
 resources/参考项目/
+
+# Ebooks and Documents
+**/*.pdf
+**/*.PDF
+**/*.epub
+**/*.EPUB
+**/*.mobi
+**/*.azw3
+
+# 百度网盘下载临时文件
+**/*.baiduyun.p.downloading
+**/*.baiduyun.p.downloading.cfg
+
 0_Inbox/*.pdf
 **/*.mp4
 **/*.m4a
@@ -42,15 +63,95 @@ resources/参考项目/
 **/*.pkl
 **/*.gif
 
-# Development (Recursive)
+# ============================================
+# 开发环境依赖和构建产物（全局递归）
+# ============================================
+
+# Node.js / Bun / Deno
 **/node_modules/
+**/dist/
+**/build/
+**/.next/
+**/.nuxt/
+**/.output/
+**/out/
+**/.vercel/
+**/.turbo/
+**/.parcel-cache/
+**/.cache/
+**/.eslintcache
+**/.stylelintcache
+
+# Node 锁文件（由用户选择是否跟踪）
+# 保留 package.json，忽略锁文件以减少冲突
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+
+# Python
 **/.env
+**/.env.local
+**/.env.*.local
 **/.venv/
 **/venv/
+**/env/
+**/__pycache__/
 **/*.pyc
+**/*.pyo
+**/*.pyd
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.tox/
+**/htmlcov/
+**/.coverage
 **/*.egg-info/
-dist/
-build/
+**/*.egg
+**/pip-wheel-metadata/
+**/site-packages/
+
+# Python 锁文件（可选，通常建议保留，但可忽略以减少冲突）
+# uv.lock
+# poetry.lock
+# Pipfile.lock
+
+# Rust
+target/
+**/target/
+Cargo.lock
+**/Cargo.lock
+**/*.rs.bk
+
+# Go
+**/vendor/
+go.sum
+
+# Java
+**/*.class
+**/*.jar
+**/*.war
+**/*.ear
+**/.gradle/
+**/gradle/
+**/build/
+
+# C/C++
+**/*.o
+**/*.obj
+**/*.so
+**/*.dll
+**/*.exe
+**/*.out
+**/cmake-build-*/
+**/.vs/
+
+# .NET
+**/bin/
+**/obj/
+**/.vs/
+**/*.suo
+**/*.user
 
 # Smart Env & External Reference
 .smart-env/
@@ -67,17 +168,76 @@ resources/个人信息/
 Archives/工具源码/
 Archives/慢编程项目/
 
-# Browser User Data (Contains login cookies)
+# ============================================
+# .agents 目录（仅忽略运行时/生成文件，保留 skills/tools 文档）
+# ============================================
+# 浏览器数据（含登录态/缓存）
 .agents/browser_user_data/
 .agents/**/browser_user_data/
+.agents/**/Crashpad/
+.agents/**/Cache/
+.agents/**/CacheStorage/
+.agents/**/Code\ Cache/
+.agents/**/blob_storage/
+.agents/**/databases/
+.agents/**/extensions/
+.agents/**/File\ Storage/
+.agents/**/GPUCache/
+.agents/**/IndexedDB/
+.agents/**/Local\ Storage/
+.agents/**/Service\ Worker/
+.agents/**/Session\ Storage/
+.agents/**/shared_proto_db/
+.agents/**/VideoDecodeStats/
+.agents/**/WebrtcVideoStats/
+.agents/**/*.log
+.agents/**/Preferences
+.agents/**/Local\ State
+
+# 开发依赖
+.agents/node_modules/
 .agents/**/node_modules/
+.agents/package-lock.json
+.agents/bun.lock
+.agents/yarn.lock
+.agents/pnpm-lock.yaml
+
+# Skill / tool runtime
+.agents/**/.runtime/
+
+# Python 运行时缓存
 .agents/**/__pycache__/
 .agents/**/*.pyc
+.agents/**/*.pyo
+.agents/**/*.pyd
 .agents/**/.pytest_cache/
+.agents/**/.coverage
+.agents/**/htmlcov/
+.agents/**/*.egg-info/
+
+# 构建输出
 .agents/**/dist/
 .agents/**/build/
-.agents/**/.env
-.agents/**/*.log
+.agents/**/out/
+.agents/**/.next/
+.agents/**/.nuxt/
+.agents/**/.output/
+
+# 临时文件
+.agents/**/.temp/
+.agents/**/temp/
+.agents/**/tmp/
+.agents/**/*.tmp
+.agents/**/*.temp
+
+# 个人配置（含敏感信息）
+.agents/.env
+.agents/config.json
+.agents/mcp.json
+.agents/settings.local.json
+
+# 项目级配置保留（由用户决定是否跟踪）
+# !.agents/config.toml  # 如需保留，取消注释这行
 **/*_user_data/Chrome/
 **/*_user_data/Default/
 **/*_user_data/*.log
@@ -92,18 +252,10 @@ Archives/慢编程项目/
 # AI 工具软链接目录（重复内容，只保留 .agents/）
 # ============================================
 .agent/
+.codex/
 .claude/
 .gemini/
 .kimi/
-
-# ============================================
-# 下载的书籍（大文件，不跟踪）
-# ============================================
-.agents/skills/resources/downloads/books/
-.agent/skills/resources/downloads/books/
-.claude/skills/resources/downloads/books/
-.gemini/skills/resources/downloads/books/
-.kimi/skills/resources/downloads/books/
 
 # ============================================
 # AI Agent Personal Configurations (Ignore)
@@ -132,7 +284,10 @@ Archives/慢编程项目/
 **/.env
 **/*.log
 
-# 其他 AI 工具根目录（如果不需要）
+# ============================================
+# AI 工具根目录（软链接或重复内容，只保留 .agents/）
+# ============================================
+.agent/
 .cline/
 .codebuddy/
 .commandcode/
@@ -140,13 +295,16 @@ Archives/慢编程项目/
 .crush/
 .cursor/
 .factory/
+.gemini/
 .goose/
 .kilocode/
 .kiro/
+.kimi/
 .mcpjam/
 .mux/
 .neovate/
 .opencode/
+.opencode-ai/
 .openhands/
 .pi/
 .qoder/
@@ -155,10 +313,100 @@ Archives/慢编程项目/
 .trae/
 .windsurf/
 .zencoder/
+.copilot/
+
+# AI 工具缓存和临时文件
+**/.ai_cache/
+**/.chat_history/
+**/.conversations/
 
 # ============================================
-# Projects 和 Resources 目录的特殊处理
-# 这些目录下有独立的 .gitignore 控制
-# 策略：只保留 Markdown 文件和索引，忽略代码项目
+# Archives 归档目录（项目备份，通常很大）
 # ============================================
-# 详见 Projects/.gitignore 和 Resources/.gitignore
+# 大文件类型
+Archives/**/*.mp4
+Archives/**/*.avi
+Archives/**/*.mov
+Archives/**/*.mkv
+Archives/**/*.webm
+Archives/**/*.zip
+Archives/**/*.7z
+Archives/**/*.tar.gz
+Archives/**/*.tar.bz2
+Archives/**/*.rar
+Archives/**/*.iso
+Archives/**/*.dmg
+Archives/**/*.img
+
+# 数据集和训练文件（大 JSON/CSV）
+Archives/**/spider-dataset/
+Archives/**/datasets/
+Archives/**/*.json
+Archives/**/*.csv
+!Archives/**/index.json
+!Archives/**/*.md
+
+# 项目构建产物（归档项目中的）
+Archives/**/target/
+Archives/**/node_modules/
+Archives/**/dist/
+Archives/**/build/
+Archives/**/.next/
+Archives/**/__pycache__/
+
+# 归档缓冲中的临时文件
+0_Inbox/04_Archives-归档缓冲/**/*.zip
+0_Inbox/04_Archives-归档缓冲/**/*.7z
+0_Inbox/04_Archives-归档缓冲/**/node_modules/
+0_Inbox/04_Archives-归档缓冲/**/target/
+
+# ============================================
+# Resources 资源目录大文件
+# ============================================
+# 临时转录文件
+resources/transcript_outputs/.temp_ogg/
+resources/transcript_outputs/**/*.ogg
+resources/transcript_outputs/**/*.mp3
+resources/transcript_outputs/**/*.wav
+resources/transcript_outputs/**/*.m4a
+
+# 课程视频（大文件）
+resources/一堂课程/
+resources/**/*.mp4
+resources/**/*.avi
+
+# 书籍资源目录（大量小文件）
+resources/books/*/
+!resources/books/*.md
+
+# 参考项目（完整代码库）
+resources/参考项目/
+resources/参考项目/*/
+
+# 转存区域（大量字幕/资源文件，仅保留索引）
+resources/00-转存区域/*/
+!resources/00-转存区域/*.md
+!resources/00-转存区域/*/_index.md
+!resources/00-转存区域/*/README.md
+
+# ============================================
+# Inbox 临时文件
+# ============================================
+0_Inbox/**/images/
+0_Inbox/**/*.docx
+0_Inbox/**/*.xlsx
+0_Inbox/**/*.pptx
+0_Inbox/**/node_modules/
+0_Inbox/**/target/
+0_Inbox/**/__pycache__/
+
+# OCR 测试输出（大量小文件）
+0_Inbox/**/ocr-*/**/test_output/
+0_Inbox/**/ocr-*/**/assets/
+
+# ============================================
+# Projects 和 Resources 目录说明
+# ============================================
+# 这两个目录建议各自有 .gitignore 控制
+# 策略：只保留 Markdown 文件和索引，忽略代码项目的构建产物
+# 详细规则见 Projects/.gitignore 和 Resources/.gitignore

@@ -1,7 +1,7 @@
 [project]
-name = "obsidian-notes"
+name = "pkm-hub"
 version = "0.1.0"
-description = "Obsidian 笔记专用知识库 Python 环境"
+description = "Obsidian pkm-hub 知识库 Python 环境"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -21,6 +21,11 @@ dependencies = [
     "lxml>=4.9.0",
     "click>=8.1.0",
     "networkx>=3.6.1",
+    "docx2md>=1.0.5",
+    "pyyaml>=6.0.2",
+    "pymupdf>=1.27.1",
+    "scipy>=1.17.1",
+    "control>=0.10.2",
 ]
 
 [project.optional-dependencies]

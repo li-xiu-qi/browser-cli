@@ -2,29 +2,43 @@
  * 通义听悟配置文件 (config.js)
  * 
  * 优先级：
- * 1. datas/cookies.json - 通过 login_handler.js 自动获取
+ * 1. datas/cookies.json - 推荐来自 browser-cli 或其他浏览器会话导出，或 login_handler.js
  * 2. DEFAULT_COOKIE - 手动配置的备用 Cookie
  * 
  * 提示：
- *   推荐先运行 `node login_handler.js` 完成登录，Cookie 会自动保存。
- *   如果自动登录不可用，可以手动填写 DEFAULT_COOKIE。
+ *   当前更推荐直接复用已经登录的浏览器会话，把 qianwen cookies 写入 datas/cookies.json。
+ *   如果当前会话不可用，再运行 `node login_handler.js` 打开独立浏览器完成登录。
+ *   XSRF-TOKEN 现在会优先从 cookies.json 自动提取。
  */
 
 const fs = require('fs');
 const path = require('path');
 
 // 优先从 datas/cookies.json 读取
+// 该文件属于本地登录态，不应提交真实内容到版本库
 const COOKIE_FILE = path.join(__dirname, 'datas', 'cookies.json');
 let COOKIE = '';
+let COOKIE_DATA = null;
+let COOKIE_XSRF_TOKEN = '';
 
 try {
   if (fs.existsSync(COOKIE_FILE)) {
     const cookieData = JSON.parse(fs.readFileSync(COOKIE_FILE, 'utf-8'));
+    COOKIE_DATA = cookieData;
     // 兼容数组格式(Playwright)和字符串格式
     if (Array.isArray(cookieData)) {
       COOKIE = cookieData.map(c => `${c.name}=${c.value}`).join('; ');
+      const preferredXsrf =
+        cookieData.find(c => c.name === 'XSRF-TOKEN' && c.domain === 'api.qianwen.com') ||
+        cookieData.find(c => c.name === 'XSRF-TOKEN' && String(c.domain || '').includes('qianwen.com'));
+      if (preferredXsrf && preferredXsrf.value) {
+        COOKIE_XSRF_TOKEN = preferredXsrf.value;
+      }
     } else if (cookieData.cookie) {
       COOKIE = cookieData.cookie;
+      if (cookieData.xsrfToken) {
+        COOKIE_XSRF_TOKEN = cookieData.xsrfToken;
+      }
     }
   }
 } catch (e) {
@@ -53,7 +67,7 @@ module.exports = {
     'sec-fetch-mode': 'cors',
     'sec-fetch-site': 'same-site',
     'x-platform': 'pc_tongyi',
-    'x-xsrf-token': XSRF_TOKEN || '9e54d3f4-106e-4155-adb9-da11e986e018',
+    'x-xsrf-token': COOKIE_XSRF_TOKEN || XSRF_TOKEN || '9e54d3f4-106e-4155-adb9-da11e986e018',
     'x-tw-canary': '',
     'x-tw-from': 'tongyi',
     'Referer': 'https://www.qianwen.com/',

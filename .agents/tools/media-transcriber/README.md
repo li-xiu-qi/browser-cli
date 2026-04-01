@@ -2,6 +2,14 @@
 
 集合了百度网盘和阿里通义听悟两个平台的音视频转录能力，根据文件大小和时长自动选择最优方案。
 
+## 入口校准
+
+- `tongyi-tingwu/` 是通义听悟的正式主线
+- `../content-converter/audio/` 里有一份历史镜像脚本，但它和 `tongyi-tingwu/` 重复，不应再被当成独立入口
+- 真正涉及通义听悟上传、导出、Cookie、当前浏览器会话排障时，默认落到 [tongyi-tingwu/README.md](./tongyi-tingwu/README.md)
+- 通义听悟当前默认是“持久化会话复用”主线：共享快照落 `.runtime/browser-session/qianwen.json`，工具实际使用的 cookie 落 `tongyi-tingwu/datas/cookies.json`
+- 已验证的稳定做法已经单独沉淀成 [通义听悟-稳定转录SOP](./tongyi-tingwu/通义听悟-稳定转录SOP.md)
+
 ## 🎯 快速选择指南
 
 | 你的情况 | 推荐方案 |
@@ -22,6 +30,7 @@ media-transcriber/
 ├── transcribe.bat           # Windows 快速入口
 ├── transcribe-baidu.bat     # 百度网盘快速入口
 ├── transcribe-tongyi.bat    # 通义听悟快速入口
+├── transcribe-youtube-tongyi.bat # YouTube 下载加通义听悟转录
 ├── baidu-pan/               # 百度网盘转录工具
 │   ├── README.md
 │   ├── transcribe.py        # 获取转录文稿
@@ -108,7 +117,13 @@ pip install -r requirements.txt
 ```bash
 cd tongyi-tingwu
 npm install
-# 首次使用需要登录
+# 当前更推荐：直接从 browser-cli 承接千问会话
+.\seed-cookies-from-browser-cli.cmd
+
+# 或者使用统一会话目录里的 JSON
+.\seed-cookies-from-browser-session.cmd ".runtime\browser-session\qianwen.json"
+
+# 当前会话不可用时，再走独立浏览器登录
 node login_handler.js
 ```
 
@@ -149,6 +164,11 @@ cd tongyi-tingwu
 node core_transcribe.js "./会议录音.mp3" ./output/
 ```
 
+### 示例 6：YouTube 下载后直接转录
+```powershell
+.\transcribe-youtube-tongyi.bat "https://www.youtube.com/watch?v=kwSVtQ7dziU" "resources\downloads\media\podcasts\no-priors-karpathy" "no-priors-code-agents-autoresearch-loopy-era-andrej-karpathy"
+```
+
 ## 🔧 配置说明
 
 ### 百度网盘 Token
@@ -156,12 +176,38 @@ Token 会自动从以下位置读取：
 - `Projects/2026-02-百度网盘自动化集成/.token_info.json`
 
 ### 通义听悟 Cookie
-首次使用需要运行：
+当前更推荐先复用 `browser-cli` 或其他浏览器会话的登录态：
+
+```bash
+cd tongyi-tingwu
+.\ensure-session.cmd
+```
+
+如果需要刷新，再运行：
+
+```bash
+cd tongyi-tingwu
+.\seed-cookies-from-browser-cli.cmd
+```
+
+如果当前会话和 `browser-cli` 都不可用，再运行：
+
 ```bash
 cd tongyi-tingwu
 node login_handler.js
 ```
-扫码登录后会自动保存 cookie。
+
+补充说明：
+
+- 目标页面更建议看 `https://www.qianwen.com/discover/audioread`
+- 共享浏览器会话快照约定为 `.runtime/browser-session/qianwen.json`
+- `datas/cookies.json` 支持浏览器导出的 cookies 数组
+- `config.js` 会自动从 cookies 中提取 `XSRF-TOKEN`
+- `datas/cookies.json` 属于本地敏感登录态，仓库只保留 `cookies.example.json`
+- 浏览器会话 JSON 的统一暂存目录约定为 `.runtime/browser-session/<tool>.json`
+- 当前默认不是每次都重新抓 cookie，而是先复用 `datas/cookies.json`
+- 如果当前激活浏览器页面已经出现上传 UI，但工具侧仍返回 `NOT_LOGIN`，先用 `ensure_session.js` 看登录校验结果，再决定是否刷新 cookie；不要先重写上传器，也不要先切到本地模型
+- 如果想少记细节，直接看 [tongyi-tingwu/通义听悟-稳定转录SOP.md](./tongyi-tingwu/通义听悟-稳定转录SOP.md)
 
 ## ⚠️ 注意事项
 
@@ -194,13 +240,14 @@ node login_handler.js
 
 - [百度网盘工具详细文档](./baidu-pan/README.md)
 - [通义听悟工具详细文档](./tongyi-tingwu/README.md)
+- [通义听悟稳定转录 SOP](./tongyi-tingwu/通义听悟-稳定转录SOP.md)
 
 ## 🐛 故障排除
 
 | 问题 | 解决方案 |
 |------|---------|
 | 百度网盘提示 Token 过期 | 重新获取 access_token |
-| 通义听悟提示 Cookie 失效 | 重新运行 `login_handler.js` |
+| 通义听悟提示 Cookie 失效或返回 `NOT_LOGIN` | 先运行 `ensure-session.cmd` 看持久化 `datas/cookies.json` 是否仍有效。只有校验失败时，才重新执行 `seed-cookies-from-browser-cli.cmd`，或导入统一会话文件，再不行才运行 `login_handler.js`。若页面已登录但工具仍报 `NOT_LOGIN`，以鉴权接口结果为准，不要只看上传 UI。 |
 | 文件太大无法上传 | 根据大小选择合适平台 |
 | 转写结果为空 | 检查是否 SVIP / 转写是否完成 |
 
