@@ -243,6 +243,14 @@ Archives/慢编程项目/
 **/*_user_data/*.log
 
 # ============================================
+# Skill Development 独立 Git 仓库
+# ============================================
+# skill-development 下的每个 skill 都是独立 Git 仓库
+# 父仓库忽略子仓库的 .git 目录，避免作为子模块处理
+.agents/skill-development/*/.git/
+.agents/skill-development/_templates/.git/
+
+# ============================================
 # Projects & Resources 目录管理
 # 这两个目录各自有 .gitignore，只保留 .md 文件
 # 详细规则见 Projects/.gitignore 和 Resources/.gitignore
