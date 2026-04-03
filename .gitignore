@@ -243,25 +243,31 @@ Archives/慢编程项目/
 **/*_user_data/*.log
 
 # ============================================
-# Skill Development 分层 Git 管理
+# Skill 双区 Git 管理
 # ============================================
 # 
 # 架构说明：
-#   1. pkm-hub 根仓库（整体备份）
-#      - 追踪除子仓库外的所有文件
-#      
-#   2. skill-development/{skill}/.git/（独立仓库）
-#      - 每个 skill 独立版本管理
-#      - 父仓库忽略子 .git/ 目录
-#      - 实现：skill 独立提交 + 整体备份
+#   pkm-hub 根仓库管理整体备份，双区 skill 各自有独立 Git
+#
+#   1. 开发迭代区: .agents/skill-development/{skill}/.git/
+#      - 开发历史、草稿、实验性修改
+#      - 版本号增长较快
+#
+#   2. 正式发布区: .agents/skills/{skill}/.git/
+#      - 发布版本的版本管理
+#      - 干净稳定，版本号对应发布点
+#
+#   3. 根仓库: pkm-hub/.git/
+#      - 追踪所有文件内容（忽略子 .git/ 目录）
+#      - 日常整体备份
 #
 # 忽略规则：
-#   - 忽略所有子 skill 的 .git/ 目录
+#   - 忽略所有子 skill 的 .git/ 目录（开发和发布区）
 #   - 保留 skill 文件本身（被根仓库追踪）
-#   - skills/ 正式区保持追踪（发布副本）
 #
 # 使用方式：
-#   cd .agents/skill-development/xxx && git commit  # 单独提交 skill
+#   cd .agents/skill-development/xxx && git commit  # 开发版本
+#   cd .agents/skills/xxx && git commit              # 发布版本
 #   cd ~/pkm-hub && git commit                        # 整体备份
 #
 # ============================================
@@ -269,7 +275,9 @@ Archives/慢编程项目/
 # 忽略 skill-development 下所有子仓库的 .git 目录
 .agents/skill-development/*/.git/
 .agents/skill-development/_templates/.git/
-# 注意：子仓库文件本身被根仓库追踪，只有 .git/ 目录被忽略
+
+# 忽略 skills 下所有子仓库的 .git 目录
+.agents/skills/*/.git/
 
 # ============================================
 # Projects & Resources 目录管理
