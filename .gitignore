@@ -243,12 +243,33 @@ Archives/慢编程项目/
 **/*_user_data/*.log
 
 # ============================================
-# Skill Development 独立 Git 仓库
+# Skill Development 分层 Git 管理
 # ============================================
-# skill-development 下的每个 skill 都是独立 Git 仓库
-# 父仓库忽略子仓库的 .git 目录，避免作为子模块处理
+# 
+# 架构说明：
+#   1. pkm-hub 根仓库（整体备份）
+#      - 追踪除子仓库外的所有文件
+#      
+#   2. skill-development/{skill}/.git/（独立仓库）
+#      - 每个 skill 独立版本管理
+#      - 父仓库忽略子 .git/ 目录
+#      - 实现：skill 独立提交 + 整体备份
+#
+# 忽略规则：
+#   - 忽略所有子 skill 的 .git/ 目录
+#   - 保留 skill 文件本身（被根仓库追踪）
+#   - skills/ 正式区保持追踪（发布副本）
+#
+# 使用方式：
+#   cd .agents/skill-development/xxx && git commit  # 单独提交 skill
+#   cd ~/pkm-hub && git commit                        # 整体备份
+#
+# ============================================
+
+# 忽略 skill-development 下所有子仓库的 .git 目录
 .agents/skill-development/*/.git/
 .agents/skill-development/_templates/.git/
+# 注意：子仓库文件本身被根仓库追踪，只有 .git/ 目录被忽略
 
 # ============================================
 # Projects & Resources 目录管理
