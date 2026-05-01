@@ -155,46 +155,18 @@ patch 位置：
 
 ## 项目维护与服务器同步
 
-### 分支策略
+> **详细运维文档**已迁移至项目专属 Skill `wenyan-cli-ops`，包括分支策略、patch 详情、部署流程、服务器信息、故障排查等。下文仅保留发布相关的核心信息。
+>
+> **路径**：`.kimi/skills/wenyan-cli-ops/SKILL.md`
+
+### 分支策略（概要）
 
 ```
-upstream (caol64/wenyan-cli)
-    └── main (上游原始分支)
-            │
-            ▼  fork
-    li-xiu-qi/wenyan-cli
-            ├── main (同步上游，只读，不部署)
-            └── xiaoke-customizations (私有分支，部署到服务器)
+upstream (caol64/wenyan-cli) → fork/main (只读同步) → fork/xiaoke-customizations (部署分支)
 ```
 
-- **`main`**：仅用于同步上游更新，保持与 upstream/main 一致，不直接部署
-- **`xiaoke-customizations`**：私有功能分支，包含：
-  - 自定义主题（xiaoke-default、xiaoke-comparison）
-  - 上游兼容性修复（import.meta.main → Node.js 兼容）
-  - `digest` 字段传递修复
-  - URL 去重与主动引用支持（`references` frontmatter）
-  - 所有部署到服务器的代码必须来自此分支
-
-**合并上游更新流程**：
-```bash
-# 1. 本地 main 同步上游
-git checkout main
-git fetch upstream
-git merge --ff-only upstream/main
-
-# 2. 合并到私有分支
-git checkout xiaoke-customizations
-git rebase main
-
-# 3. 重新应用私有 patch（如有冲突）
-# - import.meta.main 修复
-# - digest 字段修复
-# - URL 去重与 references 支持
-
-# 4. 构建并部署
-npm install && npm run build
-# 部署到服务器...
-```
+- `main`：仅同步上游，不部署
+- `xiaoke-customizations`：私有开发分支，包含自定义主题、digest 修复、URL 去重、references 支持
 
 ### 开源地址
 
